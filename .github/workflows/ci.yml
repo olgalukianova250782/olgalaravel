@@ -2,7 +2,7 @@ name: CI-CD Pipeline
 
 on:
   push:
-    branches: [ OLukianova/hw15 ]
+    branches: [ main ]
 
 jobs:
   build-test:
