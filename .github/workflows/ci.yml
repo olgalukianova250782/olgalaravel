@@ -9,12 +9,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Add SSH host key
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
-          chmod 600 ~/.ssh/known_hosts
-
       - name: Deploy via SSH
         uses: appleboy/ssh-action@master
         with:
@@ -22,8 +16,5 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            echo "---START EXECUTING SCRIPT---" &&
-            echo ${{ secrets.SERVER_HOST }} &&
-            echo ${{ secrets.SERVER_USER }} &&
             rsync -avz --delete ./build ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:~/www/79.133.181.194/olgalaravel
             
