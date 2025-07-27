@@ -6,24 +6,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      # Пример однолинейного простого скрипта shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Copy files to VPS
-        uses: appleboy/scp-action@v0.1.0
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: './*'
-          target: '~/www/79.133.181.194/olgalaravel'
-
       - name: Deploy via SSH
         uses: appleboy/ssh-action@master
         with:
