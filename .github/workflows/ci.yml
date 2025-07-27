@@ -22,6 +22,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            echo "---START EXECUTING SCRIPT---" &&
             echo ${{ secrets.SERVER_HOST }} &&
             echo ${{ secrets.SERVER_USER }} &&
             rsync -avz --delete ./build ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:~/www/79.133.181.194/olgalaravel
