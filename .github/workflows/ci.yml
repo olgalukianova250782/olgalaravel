@@ -22,7 +22,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: './*'
-          target: '/var/www/fastuser/data/www/79.133.181.194/olgalaravel'
+          target: '~/www/79.133.181.194/olgalaravel'
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@master
@@ -31,4 +31,4 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            rsync -avz --delete ./build/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/fastuser/data/www/79.133.181.194/olgalaravel
+            rsync -avz --delete . ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:~/www/79.133.181.194/olgalaravel
