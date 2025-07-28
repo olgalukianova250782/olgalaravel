@@ -13,7 +13,7 @@ jobs:
         # check this thread to understand why its needed:
         # <https://stackoverflow.com/a/70447517>
         run: |
-          ssh-agent && ssh-add ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh fastuser@79.133.181.194
 
       - name: Deploy via SSH
         # host: ${{ secrets.SERVER_HOST }}
