@@ -9,6 +9,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v1
 
+      - name: Disable StrictHostKeyChecking
+        run: |
+          mkdir -p ~/.ssh
+          echo "Host *" > ~/.ssh/config
+          echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+          chmod 600 ~/.ssh/config
+
       - name: Deploy via SSH
         uses: D3rHase/ssh-command-action@v0.2.2
         with:
