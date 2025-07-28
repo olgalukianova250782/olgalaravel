@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Deploy via SSH
-        uses: rsync-deploy-action@v1
+        uses: trendyminds/github-actions-rsync@master
         with:
           ssh_login_username: ${{ secrets.SERVER_USER }}
           remote_server_ip: ${{ secrets.SERVER_HOST }}
