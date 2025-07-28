@@ -13,7 +13,7 @@ jobs:
         uses: trendyminds/github-actions-rsync@master
         with:
           RSYNC_OPTIONS: -avzr --delete --exclude node_modules --exclude '.git*'
-          RSYNC_TARGET: ./olgalaravel
+          RSYNC_TARGET: ./
           RSYNC_SOURCE: ~/www/79.133.181.194/olgalaravel
         env:
           SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
