@@ -31,4 +31,6 @@ jobs:
             echo "------"
             cd ./olgalaravel/resources/views
             ls
+            git checkout master
+            git pull
         
