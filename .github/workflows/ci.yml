@@ -16,4 +16,4 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            rsync -avz --delete . ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:~/www/79.133.181.194/olgalaravel
+            rsync -avz --delete ./olgalaravel ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:~/www/79.133.181.194/olgalaravel
