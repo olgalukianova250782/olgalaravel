@@ -17,13 +17,13 @@ jobs:
           chmod 600 ~/.ssh/config 
 
       - name: Deploy via SSH
-        uses: D3rHase/ssh-command-action@v0.2.2
+        uses: appleboy/ssh-action@master
         with:
           host: ${{secrets.SERVER_HOST}}
-          user: ${{secrets.SERVER_USER}}
-          private_key: ${{secrets.SSH_PRIVATE_KEY}}
+          username: ${{secrets.SERVER_USER}}
+          key: ${{secrets.SSH_PRIVATE_KEY}}
           host_fingerprint: ${{ secrets.HOST_FINGERPRINT }}
-          command: |
+          script: |
             cd ~/www/79.133.181.194/olgalaravel/resouces/views
             ls
         
