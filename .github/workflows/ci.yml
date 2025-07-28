@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Deploy via SSH
-        uses: D3rHase/ssh-command-action@v.2.2
+        uses: D3rHase/ssh-command-action@v0.2.2
         with:
           host: ${{secrets.SERVER_HOST}}
           user: ${{secrets.SERVER_USER}}
