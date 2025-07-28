@@ -13,7 +13,7 @@ jobs:
         # check this thread to understand why its needed:
         # <https://stackoverflow.com/a/70447517>
         run: |
-          ssh-add ${{ secrets.SSH_PRIVATE_KEY }}
+          eval `ssh-agent -s` && ssh-add ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Deploy via SSH
         # host: ${{ secrets.SERVER_HOST }}
