@@ -9,17 +9,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: install ssh keys
-        # check this thread to understand why its needed:
-        # <https://stackoverflow.com/a/70447517>
-        run: |
-          ssh fastuser@79.133.181.194
-
       - name: Deploy via SSH
-        # host: ${{ secrets.SERVER_HOST }}
-        # username: ${{ secrets.SERVER_USER }}
-        # key: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: |
-          echo "UEBISCHEEEEEE"
-          # rsync -avz --delete ./build ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:~/www/79.133.181.194/olgalaravel
-            
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            rsync -avz --delete . ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:~/www/79.133.181.194/olgalaravel
