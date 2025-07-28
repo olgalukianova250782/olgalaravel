@@ -25,4 +25,7 @@ jobs:
           script: |
             cd ~/www
             ls
+            echo "------"
+            cd ./79.133.181.194
+            ls
         
